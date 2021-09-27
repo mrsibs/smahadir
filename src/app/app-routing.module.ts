@@ -8,8 +8,28 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'utama',
+    loadChildren: () => import('./utama/utama.module').then( m => m.UtamaPageModule)
+  },
+  {
+    path: 'guru',
+    loadChildren: () => import('./guru/guru.module').then( m => m.GuruPageModule)
+  },
+  {
+    path: 'scanguru',
+    loadChildren: () => import('./scanguru/scanguru.module').then( m => m.ScanguruPageModule)
+  },
+  {
+    path: 'hadirguru',
+    loadChildren: () => import('./hadirguru/hadirguru.module').then( m => m.HadirguruPageModule)
   },
 ];
 
