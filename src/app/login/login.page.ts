@@ -14,10 +14,27 @@ export class LoginPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log('Login ngOnInit');
+  }
+
+  ionViewWillEnter(){
+    console.log('Login view will enter');
+  }
+
+  ionViewDidEnter(){
+    console.log('Login view did enter');
+  }
+
+  ionViewWillLeave(){
+    console.log('Login view will leave');
+  }
+
+  ionViewDidLeave(){
+    console.log('Login view did leave');
   }
 
   login() {
-    this.navCtrl.navigateForward('/utama');
+    this.navCtrl.navigateRoot('/utama');
   }
 
 }

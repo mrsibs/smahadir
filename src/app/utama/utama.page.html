@@ -1,9 +1,24 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>utama</ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content>
-
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>SMAHADIR</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Sila klik butang pilihan dibawah untuk mendaftarkan kehadiran.
+    </ion-card-content>
+  </ion-card>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <ion-button style="min-height: 150px; font-size:23px" expand="block" color="tertiary" (click)="scanGuru()">
+          <ion-icon slot="start" name="person"></ion-icon>Kehadiran Guru</ion-button>
+      </ion-col>
+      <ion-col size="12">
+        <ion-button style="min-height: 150px;font-size:23px" expand="block" color="tertiary" href="">
+          <ion-icon slot="start" name="people"></ion-icon> Kehadiran Pelajar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
