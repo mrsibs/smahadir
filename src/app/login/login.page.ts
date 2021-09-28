@@ -1,3 +1,4 @@
+import { StorageService } from './../storage.service';
 import { UtamaPage } from './../utama/utama.page';
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
@@ -11,13 +12,14 @@ import { AuthService } from '../auth.service';
 export class LoginPage implements OnInit {
 
   postData = {
-    txtKp: '',
-    txtPass: ''
+    txtKp: '840806065308',
+    txtPass: 'ionic@123456789'
   };
 
   constructor(
     public authService: AuthService,
-    public navCtrl: NavController
+    public navCtrl: NavController,
+    public storageService: StorageService
   ) { }
 
   ngOnInit() {
@@ -34,7 +36,13 @@ export class LoginPage implements OnInit {
   login() {
     if (this.validateInputs()) {
       this.authService.login(this.postData).subscribe((res: any) => {
-        console.log(res);
+        if (res.status === 'Berjaya') {
+          console.log(res.token);
+          this.storageService.store('token', res.token);
+          this.navCtrl.navigateRoot('/utama');
+        } else {
+          alert('ID/Kata Laluan salah. Sila masukkan ID/Kata Laluan yang betul.');
+        }
       });
       // this.navCtrl.navigateRoot('/utama');
     } else {
