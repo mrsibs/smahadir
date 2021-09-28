@@ -9,12 +9,23 @@ import { NavController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
 
+  postData = {
+    txtKp: '',
+    txtPass: ''
+  };
+
   constructor(
     public navCtrl: NavController
   ) { }
 
   ngOnInit() {
     console.log('Login ngOnInit');
+  }
+
+  validateInputs() {
+    const txtKp = this.postData.txtKp.trim();
+    const txtPass = this.postData.txtPass.trim();
+    return (this.postData.txtKp && this.postData.txtPass && txtKp.length > 0 && txtPass.length > 0);
   }
 
   ionViewWillEnter(){
@@ -34,7 +45,11 @@ export class LoginPage implements OnInit {
   }
 
   login() {
-    this.navCtrl.navigateRoot('/utama');
+    if (this.validateInputs()) {
+      this.navCtrl.navigateRoot('/utama');
+    } else {
+      console.log('error');
+    }
   }
 
 }
