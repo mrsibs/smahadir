@@ -31,22 +31,6 @@ export class LoginPage implements OnInit {
     return (this.postData.txtKp && this.postData.txtPass && txtKp.length > 0 && txtPass.length > 0);
   }
 
-  ionViewWillEnter(){
-    console.log('Login view will enter');
-  }
-
-  ionViewDidEnter(){
-    console.log('Login view did enter');
-  }
-
-  ionViewWillLeave(){
-    console.log('Login view will leave');
-  }
-
-  ionViewDidLeave(){
-    console.log('Login view did leave');
-  }
-
   login() {
     if (this.validateInputs()) {
       this.authService.login(this.postData).subscribe((res: any) => {
